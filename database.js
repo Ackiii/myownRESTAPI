@@ -12,3 +12,8 @@ const connection = createConnection({
     password: password,
     connectionLimit: 10,
 })
+
+connection.query(`SELECT * FROM //TABLENAME`, (err,res)=>{
+    //TODO:
+    return console.log(res)
+})
