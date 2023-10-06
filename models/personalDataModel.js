@@ -1,3 +1,5 @@
+//Modell controls Data
+
 const personalData = require('../data/personaldata.json')
 
 function find(){
