@@ -7,6 +7,7 @@
     "start": "node startServer.js",
     "dev" : "nodemon startServer.js"
   },
+  "type" : "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
