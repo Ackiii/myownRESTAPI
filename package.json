@@ -2,7 +2,7 @@
   "name": "myownrestapi",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "startServer.js",
   "scripts": {
     "start": "node startServer.js",
     "dev" : "nodemon startServer.js"
