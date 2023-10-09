@@ -1,6 +1,6 @@
 //Modell controls Data
-const {searchForData} = require('../Arnes/Website/server/myownRESTAPI/database.js')
-const personalData = require('../Arnes/Website/server/myownRESTAPI/data/personaldata.json')
+const {searchForData} = require('database.js')
+const personalData = require('personaldata.json')
 
 function find(){
     return new Promise((resolve, reject) => {

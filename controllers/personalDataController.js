@@ -1,6 +1,6 @@
 //Controller runs the actions needed, gets data from model
 //TODO: Build the needed Search functions
-const PersonalData = require('../Arnes/Website/server/myownRESTAPI/models/personalDataModel');
+const PersonalData = require('personalDataModel.js');
 
 async function getAllPersonalData(req, res) {
     try {
