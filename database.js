@@ -3,12 +3,12 @@
  * credentials are stored seperatly and are not in the git Repository.
  */
 
-import { host, user, password } from '/Arnes/Website/server/myownRESTAPI/credentials.js';
+import { hostid, user, password } from '/Arnes/Website/server/myownRESTAPI/credentials.js';
 import { createConnection } from 'mysql';
 const tableName = "apidata";
 
 const connection = createConnection({
-    host: host,
+    host: hostid,
     user: user,
     password: password,
     connectionLimit: 10,
