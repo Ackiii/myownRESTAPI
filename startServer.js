@@ -6,13 +6,13 @@
  */
 
 //Node Library needed for the Requests
-const http = require('http')
+import { createServer } from 'http'
 
 //The Data we will be able to send back
-const { getPersonalData,getAllPersonalData } = require('personalDataController.js')
+import { getPersonalData, getAllPersonalData } from 'personalDataController.js'
 
 //Endpoint that handles the actual request
-const server = http.createServer((req, res) => {
+const server = createServer((req, res) => {
     //if (req.url == xx && req.method === 'GET')
     //TODO check if the regex is fine
     //regex match for url -> req.url.match(/\/api\/data\/([a-z]+)/)

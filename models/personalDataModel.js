@@ -1,6 +1,6 @@
 //Modell controls Data
-const {searchForData} = require('database.js')
-const personalData = require('personaldata.json')
+import {searchForData} from 'database.js';
+import {personalData} from 'personaldata.json';
 
 function find(){
     return new Promise((resolve, reject) => {
@@ -13,7 +13,7 @@ async function findInDatabase(keyword){
     return await searchForData(keyword)
 }
 
-module.exports = {
+export default {
     find,
     findInDatabase
 }

@@ -3,8 +3,8 @@
  * credentials are stored seperatly and are not in the git Repository.
  */
 
-const {host, user, password} = require('credentials.js');
-const {createConnection} = require('mysql');
+import { host, user, password } from 'credentials.js';
+import { createConnection } from 'mysql';
 const tableName = "apidata";
 
 const connection = createConnection({
@@ -22,6 +22,6 @@ async function searchForData(keyword){
     })
 }
 
-module.exports = {
+export default {
     searchForData
 }

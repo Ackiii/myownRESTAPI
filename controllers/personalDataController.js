@@ -1,10 +1,10 @@
 //Controller runs the actions needed, gets data from model
 //TODO: Build the needed Search functions
-const PersonalData = require('personalDataModel.js');
+import { find } from 'personalDataModel.js';
 
 async function getAllPersonalData(req, res) {
     try {
-        const fetchedData = await PersonalData.find()
+        const fetchedData = await find()
         res.writeHead(200, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify(fetchedData));
     } catch (error) {
@@ -28,12 +28,11 @@ async function getPersonalData(req, res) {
 }
 
 
-
 //Post 1 item 
 
 //Delete will not be implemented, because its a demo API
 
-module.exports = {
+export default {
     getPersonalData,
     getAllPersonalData
 }
