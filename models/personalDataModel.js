@@ -1,6 +1,6 @@
 //Modell controls Data
 import {searchForData} from '/Arnes/Website/server/myownRESTAPI/database.js';
-import {personalData} from '/Arnes/Website/server/myownRESTAPI/personaldata.json';
+
 
 function find(){
     return new Promise((resolve, reject) => {
