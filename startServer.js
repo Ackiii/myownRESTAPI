@@ -9,7 +9,7 @@
 import { createServer } from 'http'
 
 //The Data we will be able to send back
-import { getPersonalData, getAllPersonalData } from 'personalDataController.js'
+import { getPersonalData, getAllPersonalData } from 'controllers/personalDataController.js'
 
 //Endpoint that handles the actual request
 const server = createServer((req, res) => {
