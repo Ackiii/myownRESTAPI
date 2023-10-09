@@ -1,6 +1,6 @@
 //Controller runs the actions needed, gets data from model
 //TODO: Build the needed Search functions
-import { find } from 'personalDataModel.js';
+import { find } from '/Arnes/Website/server/myownRESTAPI/models/personalDataModel.js';
 
 async function getAllPersonalData(req, res) {
     try {
