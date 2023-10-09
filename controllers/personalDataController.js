@@ -1,13 +1,12 @@
 //Controller runs the actions needed, gets data from model
 //TODO: Build the needed Search functions
-const PersonalData = require('../models/personalDataModel');
+const PersonalData = require('../Arnes/Website/server/myownRESTAPI/models/personalDataModel');
 
 async function getAllPersonalData(req, res) {
     try {
         const fetchedData = await PersonalData.find()
         res.writeHead(200, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify(fetchedData));
-
     } catch (error) {
         //TODO: set a error message in the DB not a console.log()
         console.log(error);

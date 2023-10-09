@@ -3,7 +3,7 @@
  * credentials are stored seperatly and are not in the git Repository.
  */
 
-const {host, user, password} = require('credentials.js');
+const {host, user, password} = require('/Arnes/Website/server/myownRESTAPI/credentials.js');
 const {createConnection} = require('mysql');
 const tableName = "apidata";
 
