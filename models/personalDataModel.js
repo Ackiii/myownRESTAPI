@@ -1,5 +1,5 @@
 //Modell controls Data
-const {searchInDatabase} = require('../database.js')
+const {searchForData} = require('../database.js')
 const personalData = require('../data/personaldata.json')
 
 function find(){
@@ -9,8 +9,8 @@ function find(){
 }
 
 //HERE WE NEED THE call 
-function findInDatabase(keyword){
-    return searchInDatabase(keyword)
+async function findInDatabase(keyword){
+    return await searchForData(keyword)
 }
 
 module.exports = {

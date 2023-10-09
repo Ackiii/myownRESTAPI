@@ -17,7 +17,9 @@ async function getAllPersonalData(req, res) {
 //Get 1 item, can be a generic function first
 async function getPersonalData(req, res) {
     try {
-        //const fetchedData = await PersonalData.find()
+        //Set keyword from req
+        const fetchedData = await findInDatabase("prename");
+        console.log(fetchedData);
         res.writeHead(200, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify('message: "OtherFile"'));
     } catch (error) {
