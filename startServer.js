@@ -9,7 +9,7 @@
 const http = require('http')
 
 //The Data we will be able to send back
-const { getPersonalData,getAllPersonalData } = require('./controllers/personalDataController.js')
+const { getPersonalData,getAllPersonalData } = require('Arnes/Website/server/myownRESTAPI/controllers/personalDataController.js')
 
 //Endpoint that handles the actual request
 const server = http.createServer((req, res) => {
