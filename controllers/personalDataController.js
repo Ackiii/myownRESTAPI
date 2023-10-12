@@ -19,10 +19,10 @@ async function getAllPersonalData(req, res) {
 async function getPersonalData(req, res) {
     try {
         //Set keyword from req
-        const fetchedData = await findInDatabase("prename");
+        const v = await findInDatabase("prename");
         console.log(fetchedData);
         res.writeHead(200, { 'Content-Type': 'application/json' })
-        res.end(JSON.stringify('message: "OtherFile"'));
+        res.end(JSON.stringify(fetchedData));
     } catch (error) {
         //TODO set a error message in the DB not a console.log()
         console.log(error);
