@@ -4,4 +4,4 @@ const { searchForData } = f;
 
 const x = "prename";
 
-searchForData(x).then((result) => { console.log("Search Result:", result) }).catch((err) => { console.log("Error:", err) });
+searchForData(x).then((result) => { console.log("Search Result:", result)}).catch((err) => { console.log("Error:", err) });
