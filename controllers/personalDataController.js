@@ -19,7 +19,7 @@ async function getAllPersonalData(req, res) {
 async function getPersonalData(req, res) {
     try {
         //Set keyword from req
-        const v = await findInDatabase("prename");
+        const fetchedData = await findInDatabase("prename");
         console.log(fetchedData);
         res.writeHead(200, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify(fetchedData));
