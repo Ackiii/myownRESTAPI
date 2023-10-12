@@ -5,7 +5,7 @@
 import fs from 'fs';
 import credentials from './credentials.js';
 import { createConnection } from 'mysql2';
-const tableName = "apidata";
+const tableName = 'apidata';
 const { hostid, username, userpassword } = credentials;
 const logFilePath = 'error.log';
 const errorMessage = 'Error: Connection to the database failed.';
