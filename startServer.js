@@ -25,4 +25,8 @@ const server = createServer((req, res) => {
 const PORT = process.env.PORT || 5000
 
 //npm run dev
-server.listen(PORT, () => console.log(`listening on port ${PORT}`))
+server.listen(PORT, () => {
+    const address = server.address();
+    const host = address.address === '::' ? 'localhost' : address.address;
+    console.log(`Server is listening on http://${host}:${address.port}`);
+});
