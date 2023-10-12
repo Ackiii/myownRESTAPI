@@ -20,9 +20,9 @@ const connection = createConnection({
 
 async function searchForData(keyword){
     connection.query(`SELECT ? FROM ?`,[keyword,tableName], async (err,res)=>{
-        fs.appendFile(logFilePath, errorMessage + '\n', (err) => {
-            if (err) {
-              console.error('Error writing to the log file:', err);
+        fs.appendFile(logFilePath, err + '\n', (errx) => {
+            if (errx) {
+              console.error('Error writing to the log file:', errx);
             } else {
               console.log('Error message logged to', logFilePath);
             }
