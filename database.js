@@ -9,8 +9,7 @@ const tableName = 'apidata';
 const { hostid, username, userpassword } = credentials;
 const databaseName = 'ARNESRESTAPI';
 const logFilePath = 'error.log';
-const errorMessage = 'Error: Connection to the database failed.';
-
+const logFilePathres = 'result.log';
 
 const connection = createConnection({
     host: hostid,
@@ -21,12 +20,19 @@ const connection = createConnection({
 })
 
 async function searchForData(keyword){
-    connection.query(`SELECT ? FROM ${tableName}`,[keyword], async (err,res)=>{
+    connection.query(`SELECT ? FROM ?`,[keyword,tableName], async (err,res)=>{
         fs.appendFile(logFilePath, err + '\n', (errx) => {
             if (errx) {
               console.error('Error writing to the log file:', errx);
             } else {
               console.log('Error message logged to', logFilePath);
+            }
+        });
+        fs.appendFile(logFilePathres, res + '\n', (errx) => {
+            if (errx) {
+              console.error('Error writing to the log file:', errx);
+            } else {
+              console.log('Error message logged to', logFilePathres);
             }
         });
         console.log(res);
