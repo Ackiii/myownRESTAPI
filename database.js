@@ -36,7 +36,7 @@ async function searchForData(keyword){
             }
         });
         console.log(res);
-        return res;
+        return res.prename;
     })
 }
 
