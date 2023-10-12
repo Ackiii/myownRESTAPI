@@ -1,4 +1,4 @@
-import f from 'database.js';
+import f from './database.js';
 
 const { searchForData } = f;
 
