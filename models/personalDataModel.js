@@ -1,6 +1,7 @@
 //Modell controls Data
-import {searchForData} from '/Arnes/Website/server/myownRESTAPI/database.js';
+import database from '../database.js';
 
+const {searchForData} = database
 
 function find(){
     return new Promise((resolve, reject) => {

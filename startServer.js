@@ -9,7 +9,9 @@
 import { createServer } from 'http'
 
 //The Data we will be able to send back
-import { getPersonalData, getAllPersonalData } from '/Arnes/Website/server/myownRESTAPI/controllers/personalDataController.js'
+import personalDataController from './controllers/personalDataController.js';
+
+const { getPersonalData } = personalDataController;
 
 //Endpoint that handles the actual request
 const server = createServer((req, res) => {
