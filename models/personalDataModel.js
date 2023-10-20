@@ -1,20 +1,22 @@
-//Modell controls Data
+//Model controls Data
 import database from '../database.js';
 
-const {searchForData} = database
+const {searchForData,searchForAllData,updateValue} = database
 
-function find(){
-    return new Promise((resolve, reject) => {
-        resolve(personalData)
-    })
+async function findAllInDatabase(keyword){
+    return await searchForAllData(keyword)
 }
 
-//HERE WE NEED THE call 
 async function findInDatabase(keyword){
     return await searchForData(keyword)
 }
 
+async function updateDatabase(value){
+    return await updateValue(parseInt(value));
+}
+
 export default {
-    find,
-    findInDatabase
+    findInDatabase,
+    findAllInDatabase,
+    updateDatabase
 }

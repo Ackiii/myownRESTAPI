@@ -19,27 +19,47 @@ const connection = createConnection({
     connectionLimit: 10,
 })
 
-async function searchForData(keyword){
-    connection.query(`SELECT ? FROM ${tableName}`,[keyword], async (err,res)=>{
-        fs.appendFile(logFilePath, err + '\n', (errx) => {
-            if (errx) {
-              console.error('Error writing to the log file:', errx);
-            } else {
-              console.log('Error message logged to', logFilePath);
-            }
-        });
-        fs.appendFile(logFilePathres, res + '\n', (errx) => {
-            if (errx) {
-              console.error('Error writing to the log file:', errx);
-            } else {
-              console.log('Error message logged to', logFilePathres);
-            }
-        });
-        console.log(res);
-        return res.prename;
-    })
+function searchForData(keyword) {
+  return new Promise((resolve, reject) => {
+      connection.query(`SELECT ${keyword} FROM ${tableName} WHERE id = 1`, (err, res) => {
+         console.log('Database Response:', res);
+          if (err) {
+              reject(err);
+              return;
+          }
+          resolve(res);
+      });
+  });
+}
+
+function searchForAllData() {
+  return new Promise((resolve, reject) => {
+      connection.query(`SELECT prename,name,fullname,birthday,url,favanimal,obsession,post FROM ${tableName} WHERE id = 1`, (err, res) => {
+         console.log('Database Response:', res);
+          if (err) {
+              reject(err);
+              return;
+          }
+          resolve(res);
+      });
+  });
+}
+
+function updateValue(value) {
+  return new Promise((resolve, reject) => {
+      connection.query(`UPDATE ${tableName} SET post = ${value} WHERE id = 1`, (err, res) => {
+         console.log('Database Response:', res);
+          if (err) {
+              reject(err);
+              return;
+          }
+          resolve(res);
+      });
+  });
 }
 
 export default {
-    searchForData
+    searchForData,
+    searchForAllData,
+    updateValue
 }
