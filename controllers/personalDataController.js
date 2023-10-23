@@ -1,6 +1,7 @@
 //Controller runs the actions needed, gets data from model
 import personalDataModel from '../models/personalDataModel.js';
 import fs from 'fs';
+import path from 'path';
 
 const logFilePath = 'error.log';
 const { findInDatabase, findAllInDatabase, updateDatabase} = personalDataModel;
@@ -55,10 +56,9 @@ function postData(req,res){
     if(req.url.match(/\/api\/data\/([0-9]+)/)){
         const temp = req.url.split("/");
         const value = temp[temp.length - 1]
-        console.log(value)
         return Number.isInteger(parseInt(value)) ? updatePersonalData(res,parseInt(value)) : writeMessage(400,res,"Not a Valid Number");
     }else{
-        writeMessage(400,res,"No such URL, missing a Parameter?");
+        writeMessage(400,res,"No such URL, is the Parameter a 10 bit Number?");
     }
 }
 
@@ -74,11 +74,24 @@ function getData(req,res){
             case 'birthday' : getPersonalData(res,parameter); break;
             case 'obsession' : getPersonalData(res,parameter); break;
             case 'favanimal' : getPersonalData(res,parameter); break;
+            case 'post' : getPersonalData(res,parameter); break;
             case 'all' : getAllPersonalData(res,"*"); break;
             default: writeMessage(400,res,"No such Parameter");
         }
     }else{
-        writeMessage(400,res,"No such URL, missing a Parameter?");
+        if(req.url === "/"){
+            fs.readFile(path.join("C:/Private_git/myownRESTAPI/", 'index.html'), (err, data) => {
+                if (err) {
+                    res.writeHead(500);
+                    res.end('Server Error');
+                    return;
+                }
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.end(data);
+            });
+        }else{
+            writeMessage(400,res,"No such URL, missing a Parameter?");
+        }   
     }
 }
 
