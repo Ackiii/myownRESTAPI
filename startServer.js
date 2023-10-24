@@ -15,12 +15,7 @@ const { getPersonalData } = personalDataController;
 
 //Endpoint that handles the actual request
 const server = createServer((req, res) => {
-    if (req.url == xx && req.method === 'GET'){
-        if(req.url.match(/\/api\/data\/([a-z]+)/))
-        //TODO check if the regex is fine
-        //regex match for url -> req.url.match(/\/api\/data\/([a-z]+)/)
-        return getPersonalData(req,res)
-    }
+        return handleRequest(req,res)
 })
 
 //Check the Port where to listen, might be already set in the env otherwise 5000
