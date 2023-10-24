@@ -71,7 +71,7 @@ function getData(req,res){
             case 'name' : getPersonalData(res,parameter); break;
             case 'fullname' : getPersonalData(res,parameter); break;
             case 'url' : getPersonalData(res,parameter); break;
-            case 'birthday' : getPersonalData(res,parameter); break;
+            case 'birthdate' : getPersonalData(res,parameter); break;
             case 'obsession' : getPersonalData(res,parameter); break;
             case 'favanimal' : getPersonalData(res,parameter); break;
             case 'post' : getPersonalData(res,parameter); break;
