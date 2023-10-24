@@ -11,7 +11,7 @@ import { createServer } from 'http'
 //The Data we will be able to send back
 import personalDataController from './controllers/personalDataController.js';
 
-const { getPersonalData } = personalDataController;
+const { handleRequest } = personalDataController;
 
 //Endpoint that handles the actual request
 const server = createServer((req, res) => {
