@@ -80,10 +80,12 @@ function getData(req,res){
         }
     }else{
         if(req.url === "/"){
+            //change Path to File on Server /Arnes/Website/server/myownRESTAPI/
             fs.readFile(path.join("C:/Private_git/myownRESTAPI/", 'index.html'), (err, data) => {
                 if (err) {
                     res.writeHead(500);
                     res.end('Server Error');
+                    writeErrorToLog(err);
                     return;
                 }
                 res.writeHead(200, {'Content-Type': 'text/html'});
@@ -115,8 +117,6 @@ function unixTime() {
         ':' + ('0' + u.getUTCSeconds()).slice(-2) +
         '.' + (u.getUTCMilliseconds() / 1000).toFixed(3).slice(2, 5) 
 };
-
-//Post 1 item 
 
 //Delete will not be implemented, because its a demo API
 export default {
