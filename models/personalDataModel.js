@@ -1,4 +1,5 @@
 //Model controls Data
+//Personal preference to hold the database in a separate File could also be implemented here.
 import database from '../database.js';
 
 const {searchForData,searchForAllData,updateValue} = database

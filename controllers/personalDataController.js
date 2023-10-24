@@ -8,7 +8,6 @@ const { findInDatabase, findAllInDatabase, updateDatabase} = personalDataModel;
 
 async function getAllPersonalData(res) {
     try {
-        //Set keyword from req
         const fetchedData = await findAllInDatabase();
         writeMessage(200,res,JSON.stringify(fetchedData))
     } catch (error) {
@@ -30,7 +29,6 @@ async function getPersonalData(res, parameter) {
 
 async function updatePersonalData(res, parameter) {
     try {
-        //Set keyword from req
         const fetchedData = await updateDatabase(parameter);
         writeMessage(200,res,JSON.stringify(fetchedData))
     } catch (error) {
@@ -39,6 +37,7 @@ async function updatePersonalData(res, parameter) {
     }
 }
 
+//main function
 function handleRequest(req,res){
     switch(req.method){
         case 'GET': getData(req,res); break;
@@ -52,6 +51,7 @@ function writeMessage(code, res, msg){
     res.end(msg);
 }
 
+//Check if data input is valid
 function postData(req,res){
     if(req.url.match(/\/api\/data\/([0-9]+)/)){
         const temp = req.url.split("/");
@@ -75,16 +75,17 @@ function getData(req,res){
             case 'obsession' : getPersonalData(res,parameter); break;
             case 'favanimal' : getPersonalData(res,parameter); break;
             case 'post' : getPersonalData(res,parameter); break;
-            case 'all' : getAllPersonalData(res,"*"); break;
+            case 'all' : getAllPersonalData(res); break;
             default: writeMessage(400,res,"No such Parameter");
         }
     }else{
         if(req.url === "/"){
-            //change Path to File on Server /Arnes/Website/server/myownRESTAPI/
-            fs.readFile(path.join("C:/Private_git/myownRESTAPI/", 'index.html'), (err, data) => {
+            //change Path to File on Server /home/akash/Arnes/Website/server/myownRESTAPI/
+            //Path on PC C:/Private_git/myownRESTAPI/
+            fs.readFile(path.join("/home/akash/Arnes/Website/server/myownRESTAPI/", 'index.html'), (err, data) => {
                 if (err) {
                     res.writeHead(500);
-                    res.end('Server Error');
+                    res.end('Server Error, check the logs');
                     writeErrorToLog(err);
                     return;
                 }
